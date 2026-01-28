@@ -1,0 +1,1 @@
+import '../../../../core/foundation/error/failure.dart'; import '../../../../core/foundation/result/result.dart'; import '../entities/{{name.snakeCase()}}_entity.dart'; abstract class I{{name.pascalCase()}}Repository { Future<Result<Failure, {{name.pascalCase()}}Entity>> get(); }

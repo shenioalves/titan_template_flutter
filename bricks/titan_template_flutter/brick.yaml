@@ -1,0 +1,14 @@
+name: titan_template_flutter
+description: Template oficial da TITAN para novos projetos Flutter.
+
+version: 0.1.0+1
+
+environment:
+  mason: ">=0.1.0-dev.51 <0.2.0"
+
+vars:
+  app_name:
+    type: string
+    description: "Nome do projeto (ex: meu_app)"
+    prompt: Qual o nome do novo projeto?
+    default: titan_project

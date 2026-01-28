@@ -1,0 +1,10 @@
+name: titan_feature
+description: Gera um módulo completo (Clean + BLoC + Modular) no padrão TITAN.
+version: 0.1.0+1
+environment:
+  mason: ^0.1.2
+vars:
+  name:
+    type: string
+    description: Nome da feature
+    prompt: Qual o nome da nova feature?

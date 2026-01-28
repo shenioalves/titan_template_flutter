@@ -1,0 +1,41 @@
+# Configurações globais
+set shell := ["bash", "-c"]
+
+# Lista todos os comandos disponíveis se rodar apenas 'just'
+default:
+    @just --list
+
+# ==========================================
+# 🚀 RODAR O APP
+# ==========================================
+
+# Roda o App em modo QA (Ambiente de Teste)
+qa:
+    fvm flutter run --flavor qa -t lib/main_qa.dart
+
+# Roda o App em modo PROD (Produção)
+prod:
+    fvm flutter run --flavor prod -t lib/main_prod.dart
+
+# ==========================================
+# 🛠️ MANUTENÇÃO & SETUP
+# ==========================================
+
+# Instala dependências e limpa cache
+setup:
+    fvm flutter clean
+    fvm flutter pub get
+
+# Gera arquivos de build (MobX, Freezed, etc - se usar build_runner)
+build:
+    fvm flutter pub run build_runner build --delete-conflicting-outputs
+
+# Gera uma nova feature (Módulo)
+# Uso: just module nome_da_feature
+module name:
+    mason make titan_feature --name {{name}}
+    @echo "⚠️  Lembre-se de adicionar a rota em app_module.dart!"
+
+# Verifica traduções faltando
+check-i18n:
+    dart tools/i18n_validator/main.dart
