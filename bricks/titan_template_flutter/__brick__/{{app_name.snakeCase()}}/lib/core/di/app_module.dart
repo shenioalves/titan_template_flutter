@@ -2,6 +2,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../modules/auth/auth_module.dart';
 import '../../modules/home/home_module.dart';
+import '../../modules/splash/splash_module.dart';
 import '../routing/routes.dart';
 import 'core_module.dart';
 
@@ -11,11 +12,13 @@ class AppModule extends Module {
 
   @override
   void routes(RouteManager r) {
-    r.module(Routes.initial, module: AuthModule());
+    // Rota Inicial agora é o Splash
+    r.module(Routes.initial, module: SplashModule());
 
+    // Rotas de Auth e Home
+    r.module('/auth', module: AuthModule());
     r.module('/home', module: HomeModule());
 
-    // Adicione novas rotas aqui
     super.routes(r);
   }
 }
